@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TrashCollectionRiches.Models;
+using TrashCollectionRiches.Views.ViewModels;
 
 namespace TrashCollectionRiches.Data
 {
@@ -33,6 +34,8 @@ namespace TrashCollectionRiches.Data
         public DbSet<TrashCollectionRiches.Models.Customer> Customer { get; set; }
 
         public DbSet<TrashCollectionRiches.Models.Employee> Employee { get; set; }
+
+        public DbSet<TrashCollectionRiches.Views.ViewModels.RegisterUser> RegisterUser { get; set; }
         
     }
 }

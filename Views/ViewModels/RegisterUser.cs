@@ -8,9 +8,9 @@ namespace TrashCollectionRiches.Views.ViewModels
 {
     public class RegisterUser
     {
-        //This data goes from the Registration view to the UserTypeController.
+        //This data goes from the Registration view to the UserController.
         //UserTypeController will determine role of Registrant.
-
+        [Key]
         [Required]
         [EmailAddress]
         public string Email { get; set; }
