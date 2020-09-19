@@ -6,7 +6,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace TrashCollectionRiches
+namespace TrashCollectionRiches.ActionFilters
 {
     public class GlobalRouting : IActionFilter
     {
@@ -18,7 +18,7 @@ namespace TrashCollectionRiches
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            var controller = context.RouteData.Values["conroller"];
+            var controller = context.RouteData.Values["controller"];
             if (controller.Equals("Home"))
             {
                 if (_claimsPrincipal.IsInRole("Customer"))

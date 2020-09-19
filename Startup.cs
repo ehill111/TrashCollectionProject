@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
+using TrashCollectionRiches.ActionFilters;
 
 namespace TrashCollectionRiches
 {
