@@ -54,25 +54,7 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PickUpDay)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PickUpDay)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PickUpStatus)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PickUpStatus)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PaymentStatus)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PaymentStatus)
-        </dd>
-    </dl>
+     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="CustomerId" />

@@ -18,10 +18,6 @@ namespace TrashCollectionRiches.Models
         public int ZipCode { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string ServiceStartDate { get; set; }
-        public string ServiceStopDate { get; set; }
-        public string PickUpDay { get; set; }
-        public string PickUpStatus { get; set; }
-        public string PaymentStatus { get; set; }
+       
     }
 }
