@@ -8,6 +8,7 @@ namespace TrashCollectionRiches.Models
 {
     public class PickUpSchedule
     {   [Key]
+        public int PickUpScheduleId { get; set; }
         public DayOfWeek Day { get; set; }
     }
 }

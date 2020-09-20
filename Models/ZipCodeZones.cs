@@ -8,6 +8,7 @@ namespace TrashCollectionRiches.Models
 {
     public class ZipCodeZones
     {   [Key]
+        public int ZipCodeZonesId { get; set; }
         public int Id { get; set; }
         public int Zone1 { get; set; }
         public int Zone2 { get; set; }

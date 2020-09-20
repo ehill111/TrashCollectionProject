@@ -9,6 +9,7 @@ namespace TrashCollectionRiches.Models
     public class CustomerServiceStatus
     {
         [Key]
+        public int CustomerServiceServiceId { get; set; }
         public bool Active { get; set; }
         public bool Deleted { get; set; }
         public bool SuspendedCustomerRequest { get; set; }

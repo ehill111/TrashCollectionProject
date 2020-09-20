@@ -9,6 +9,7 @@ namespace TrashCollectionRiches.Models
     public class CustomerSpecialPickUp
     {
         [Key]
+        public int CustomerSpecialPickUpId { get; set; }
         public bool SpecialPickUp { get; set; }
         public DateTime SpecialPickUpDate { get; set; }
         public bool SpecialPickUpCancel { get; set; }

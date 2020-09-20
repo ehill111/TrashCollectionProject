@@ -9,6 +9,7 @@ namespace TrashCollectionRiches.Models
     public class CustomerPayRecord
     {
         [Key]
+        public int CustomerPayRecordId { get; set; }
         public int AmountDue { get; set; }
         public string AmountDueDate { get; set; }
         public int AmountReceived { get; set; }

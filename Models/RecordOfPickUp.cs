@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace TrashCollectionRiches.Models
 {
     public class RecordOfPickUp
-    {[Key]
+    {   [Key]
+        public int RecordOfPickUpId { get; set; }
         public DateTime Date { get; set; }
     }
 }
