@@ -12,6 +12,9 @@ namespace TrashCollectionRiches.Models
         public bool Active { get; set; }
         public bool Deleted { get; set; }
         public bool SuspendedCustomerRequest { get; set; }
-        public bool SuspendedPastDue { get; set; }
+        public bool SuspendedByCompany { get; set; }
+        public DateTime SuspendStart { get; set; }
+        public DateTime SuspendStop { get; set; }
+ 
     }
 }
