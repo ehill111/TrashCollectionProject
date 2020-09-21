@@ -22,6 +22,7 @@ namespace TrashCollectionRiches.Controllers
         // GET: Customer
         public async Task<IActionResult> Index()
         {
+            
             return View(await _context.Customer.ToListAsync());
         }
 
@@ -44,8 +45,16 @@ namespace TrashCollectionRiches.Controllers
         }
 
         // GET: Customer/Create
-        public IActionResult Create()
+        public IActionResult CreateNewCustomer(string FirstName, string LastName, string StreetAddress, string City, string State, int ZipCode, string Email, string Password)
         {
+            Customer customer = new Customer();
+            customer.FirstName = FirstName;
+            customer.LastName = LastName;
+            customer.StreetAddress = StreetAddress;
+            customer.City = City;
+            customer.State = State;
+            customer.ZipCode = ZipCode;
+            _context.SaveChanges();
             return View();
         }
 
@@ -54,7 +63,7 @@ namespace TrashCollectionRiches.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,FirstName,LastName,StreetAddress,City,State,ZipCode,Email,PickUpDay,PickUpStatus,PaymentStatus")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerId,FirstName,LastName,StreetAddress,City,State,ZipCode,Email,Password")] Customer customer)
         {
             if (ModelState.IsValid)
             {
