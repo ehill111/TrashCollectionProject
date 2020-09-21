@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrashCollectionRiches.Data;
 
 namespace TrashCollectionRiches.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200921010639_CreateNewCustomer")]
+    partial class CreateNewCustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,8 +50,8 @@ namespace TrashCollectionRiches.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "78b2f41e-4c68-4a31-a4af-ebdd895f8fc7",
-                            ConcurrencyStamp = "6eb0f7b8-b8fa-42e3-967c-996592c08b15",
+                            Id = "a5c6666b-c83b-4ef7-a002-7fd9746ec7c5",
+                            ConcurrencyStamp = "82484b56-dfaa-4d11-a82b-1a9881353b5d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

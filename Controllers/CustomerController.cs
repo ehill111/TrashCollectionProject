@@ -75,8 +75,13 @@ namespace TrashCollectionRiches.Controllers
         }
 
         // GET: Customer/Edit/5
+        //Need pickup schedule.
+        //Customer needs ability to select pickup day.
+        //Customer needs ability to change pickup day.
         public async Task<IActionResult> Edit(int? id)
         {
+
+
             if (id == null)
             {
                 return NotFound();
