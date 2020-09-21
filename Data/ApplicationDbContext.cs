@@ -22,20 +22,22 @@ namespace TrashCollectionRiches.Data
 
             builder.Entity<IdentityRole>()
                 .HasData(
-                    new IdentityRole
-                    {
-                        Name = "Admin",
-                        NormalizedName = "ADMIN"
-                    }
+                     new IdentityRole
+                     {
+                         Name = "Customer",
+                         NormalizedName = "CUSTOMER"
+                     },
+                      new IdentityRole
+                      {
+                          Name = "Employee",
+                          NormalizedName = "EMPLOYEE"
+                      }
                 );
 
         }
 
         public DbSet<TrashCollectionRiches.Models.Customer> Customer { get; set; }
-
         public DbSet<TrashCollectionRiches.Models.Employee> Employee { get; set; }
 
-        public DbSet<TrashCollectionRiches.Views.ViewModels.RegisterUser> RegisterUser { get; set; }
-        
     }
 }

@@ -19,35 +19,36 @@ namespace TrashCollectionRiches.Controllers
             _context = context;
         }
 
-        // GET: Customer
-        public async Task<IActionResult> Index()
-        {
+        //// GET: Customer
+        //public async Task<IActionResult> Index()
+        //{
             
-            return View(await _context.Customer.ToListAsync());
-        }
+        //    return View(await _context.Customer.ToListAsync());
+        //}
 
         // GET: Customer/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var customer = await _context.Customer
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
+        //    var customer = await _context.Customer
+        //        .FirstOrDefaultAsync(m => m.CustomerId == id);
+        //    if (customer == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(customer);
-        }
+        //    return View(customer);
+        //}
 
         // GET: Customer/Create
         public IActionResult CreateNewCustomer(string FirstName, string LastName, string StreetAddress, string City, string State, int ZipCode, string Email, string Password)
         {
             Customer customer = new Customer();
+
             customer.FirstName = FirstName;
             customer.LastName = LastName;
             customer.StreetAddress = StreetAddress;
@@ -58,18 +59,19 @@ namespace TrashCollectionRiches.Controllers
             return View();
         }
 
-        // POST: Customer/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //POST: Customer/Create
+        //To protect from overposting attacks, enable the specific properties you want to bind to, for 
+         //more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,FirstName,LastName,StreetAddress,City,State,ZipCode,Email,Password")] Customer customer)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));//Ask about Index
             }
             return View(customer);
         }
@@ -80,19 +82,18 @@ namespace TrashCollectionRiches.Controllers
         //Customer needs ability to change pickup day.
         public async Task<IActionResult> Edit(int? id)
         {
+            //Member variables have/has...
 
 
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //Constructor
 
-            var customer = await _context.Customer.FindAsync(id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
-            return View(customer);
+
+            //Methods do something.
+            //PickUpSchedule schedule = new PickUpSchedule();
+           
+
+           
+            return View();
         }
 
         // POST: Customer/Edit/5

@@ -15,4 +15,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Views\Customer\" />
+    <Folder Include="Views\ZipCodeZones\" />
+  </ItemGroup>
+
 </Project>
