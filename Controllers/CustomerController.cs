@@ -19,62 +19,80 @@ namespace TrashCollectionRiches.Controllers
             _context = context;
         }
 
-        //// GET: Customer
-        //public async Task<IActionResult> Index()
-        //{
-            
-        //    return View(await _context.Customer.ToListAsync());
-        //}
-
-        // GET: Customer/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var customer = await _context.Customer
-        //        .FirstOrDefaultAsync(m => m.CustomerId == id);
-        //    if (customer == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(customer);
-        //}
-
         // GET: Customer/Create
-        public IActionResult CreateNewCustomer(string FirstName, string LastName, string StreetAddress, string City, string State, int ZipCode, string Email, string Password)
+        public IActionResult Create(string FirstName, string LastName, string StreetAddress, string City, string State, int ZipCode, string Email, string Password)
         {
             Customer customer = new Customer();
-
-            customer.FirstName = FirstName;
-            customer.LastName = LastName;
-            customer.StreetAddress = StreetAddress;
-            customer.City = City;
-            customer.State = State;
-            customer.ZipCode = ZipCode;
-            _context.SaveChanges();
             return View();
         }
 
         //POST: Customer/Create
         //To protect from overposting attacks, enable the specific properties you want to bind to, for 
-         //more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,FirstName,LastName,StreetAddress,City,State,ZipCode,Email,Password")] Customer customer)
         {
-
-            if (ModelState.IsValid)
-            {
-                _context.Add(customer);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));//Ask about Index
-            }
+            _context.Add(customer);
+            _context.SaveChanges();
             return View(customer);
         }
+
+        // GET: Customer
+        //Need day.
+        //Need selection.
+        public async Task<IActionResult> Edit(int id)
+        {
+            Customer customerToEdit = await _context.Customer.Where(c => c.CustomerId == id).SingleOrDefaultAsync();
+            return View(customerToEdit);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Customer customer)
+        {
+             _context.Customer.Update(customer);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Create(int id)
+        {
+            Customer oneTimePickUp = new Customer();
+            return View(oneTimePickUp);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(Customer oneTimePickUp)
+        {
+            _context.Customer.Add(oneTimePickUp);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        // GET: Customer
+        public async Task<IActionResult> Index()
+        {
+
+            return View(await _context.Customer.ToListAsync());
+        }
+
+        //GET: Customer/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var customer = await _context.Customer
+                .FirstOrDefaultAsync(m => m.CustomerId == id);
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return View(customer);
+        }
+
+       
 
         // GET: Customer/Edit/5
         //Need pickup schedule.
@@ -82,14 +100,7 @@ namespace TrashCollectionRiches.Controllers
         //Customer needs ability to change pickup day.
         public async Task<IActionResult> Edit(int? id)
         {
-            //Member variables have/has...
-
-
-            //Constructor
-
-
-            //Methods do something.
-            //PickUpSchedule schedule = new PickUpSchedule();
+            
            
 
            

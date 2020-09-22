@@ -186,3 +186,4 @@ C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeC
 C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\TrashCollectionRiches.dll
 C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\TrashCollectionRiches.pdb
 C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\TrashCollectionRiches.genruntimeconfig.cache
+C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Index.cshtml.g.cs
