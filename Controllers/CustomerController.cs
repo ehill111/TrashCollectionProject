@@ -70,17 +70,19 @@ namespace TrashCollectionRiches.Controllers
             Customer Balance = _context.Customer.Where(b => b.Balance == id).SingleOrDefault();
             return View(Balance);
         }
-
+        //Customer able to specify START and END date.
         // GET: Customer
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Edit(int id)
         {
-
+            Customer suspendStartStop = _context.Customer.Where(s => s.CustomerId == id).SingleOrDefault();
             return View(await _context.Customer.ToListAsync());
         }
-        public async Task<IActionResult> Edit(int? id)
+        [HttpPost]
+        public async Task<IActionResult> Edit(Customer suspendStartStop)
         {
-             
-            return View();
+            _context.Customer.Update(suspendStartStop);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
         // POST: Customer/Edit/5
