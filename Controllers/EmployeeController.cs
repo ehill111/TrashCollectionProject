@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,12 +19,33 @@ namespace TrashCollectionRiches.Controllers
         {
             _context = context;
         }
-
+        //Employee able to see default list of today's trash pickups determined by employee's zip code.
+        //Need customers in employee's zip code zone.
+        //Need customers with trash pickup of today.
         // GET: Employee
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Employee.ToListAsync());
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);//Find out about this???
+            var employeeOnDuty = _context.Employee.Where(e => e.IdentityUserId == userId).Single();
+            //This returns to the Index view an IEnumerable<Customer> -- i.e., List<Customer>
+
+            //Only customers that have the same zip code as currently logged in employee.
+            var customerInZipCode = _context.Customer.Where(c => c.ZipCode == employeeOnDuty.ZipCode).ToList();
+
+            //Only customers that have a pickup day set to today.
+            //DateTime.Now.Today: -- Need to find today's day of week.
+            var today = DateTime.Now.DayOfWeek.ToString();
+            var customerInZipAndToday = customerInZipCode.Where(c => c.PickUpDay == today).ToList();
+
+            //Only customers that don't have suspended service today.
+
+            //Only customers with one-time pickup that is set for today.
+
+            return View();
         }
+
+
+
 
         // GET: Employee/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -187,3 +187,9 @@ C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeC
 C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\TrashCollectionRiches.pdb
 C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\TrashCollectionRiches.genruntimeconfig.cache
 C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Index.cshtml.g.cs
+C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Edit.cshtml.g.cs
+C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Create.cshtml.g.cs
+C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Edit.cshtml.g.cs
+C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Index.cshtml.g.cs
+C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Details.cshtml.g.cs
+C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\TrashCollector\TrashRiches\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Details.cshtml.g.cs
