@@ -22,23 +22,18 @@ namespace TrashCollectionRiches.Controllers
         //Employee able to see default list of today's trash pickups determined by employee's zip code.
         //Need customers in employee's zip code zone.
         //Need customers with trash pickup of today.
+        //Employee is able to see default list of today's trash pickups determined by employee's zip code.
         // GET: Employee
         public async Task<IActionResult> Index()
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);//Find out about this???
             var employeeOnDuty = _context.Employee.Where(e => e.IdentityUserId == userId).Single();
-            //This returns to the Index view an IEnumerable<Customer> -- i.e., List<Customer>
-
-            //Only customers that have the same zip code as currently logged in employee.
             var customerInZipCode = _context.Customer.Where(c => c.ZipCode == employeeOnDuty.ZipCode).ToList();
-
-            //Only customers that have a pickup day set to today.
-            //DateTime.Now.Today: -- Need to find today's day of week.
             var today = DateTime.Now.DayOfWeek.ToString();
             var customerInZipAndToday = customerInZipCode.Where(c => c.PickUpDay == today).ToList();
-
-            //Only customers that don't have suspended service today.
-
+            var customerNoSuspend = _context.Customer.Where(c => c.SuspendStart == null);
+            var specialPickUpToday = _context.Customer.Where(c => c.SpecialPickUpDate == today)
+            
             //Only customers with one-time pickup that is set for today.
 
             return View();
