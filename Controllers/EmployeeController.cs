@@ -32,12 +32,31 @@ namespace TrashCollectionRiches.Controllers
             var today = DateTime.Now.DayOfWeek.ToString();
             var customerInZipAndToday = customerInZipCode.Where(c => c.PickUpDay == today).ToList();
             var customerNoSuspend = _context.Customer.Where(c => c.SuspendStart == null);
-            var specialPickUpToday = _context.Customer.Where(c => c.SpecialPickUpDate == today)
+            var specialPickUpToday = _context.Customer.Where(c => c.SpecialPickUpDate. == 
             
-            //Only customers with one-time pickup that is set for today.
-
             return View();
         }
+        //Need customers' pickup day identified.
+        //Need customers grouped by pickup day.
+        //Need customers in employee's zip code.
+        //Need to exclude customers in suspended status.
+        //If customer's pickup day is x, add to list and view list.
+        public async Task<IActionResult> Index()
+        {
+            
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);//Find out about this???
+            var employeeOnDuty = _context.Employee.Where(e => e.IdentityUserId == userId).Single();
+            var customerInZipCode = _context.Customer.Where(c => c.ZipCode == employeeOnDuty.ZipCode).ToList();
+            var pickUpToday = _context.Customer.Where(c => c.PickUpDay != null);
+            
+            if ( == 
+            return View("Monday");
+
+
+
+
+        }
+
 
 
 

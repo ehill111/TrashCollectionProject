@@ -57,35 +57,35 @@ namespace TrashCollectionRiches.Controllers
             oneTimePickUp = await _context.Customer.Where(c => c.CustomerId == id).SingleOrDefaultAsync();
             return View(oneTimePickUp);
         }
-        //[HttpPost]
-        //public async Task<IActionResult> Create(Customer oneTimePickUp)
-        //{
-        //    _context.Customer.Add(oneTimePickUp);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction("Index");
-        //}
-        ////Customer able to see how much is owed.
-        ////GET: Customer/Details/5
-        //public async Task<IActionResult> Details(int id)
-        //{
-        //    Customer Balance = _context.Customer.Where(b => b.Balance == id).SingleOrDefault();
-        //    return View(Balance);
-        //}
-        ////Customer able to specify START and END date.
-        //// GET: Customer
-        //public async Task<IActionResult> Edit(int id)
-        //{
-        //    Customer suspendStartStop = _context.Customer.Where(s => s.CustomerId == id).SingleOrDefault();
-        //    return View(await _context.Customer.ToListAsync());
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> Edit(Customer suspendStartStop)
-        //{
-        //    _context.Customer.Update(suspendStartStop);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction("Index");
-        //}
-        
+        [HttpPost]
+        public async Task<IActionResult> Create(Customer oneTimePickUp)
+        {
+            _context.Customer.Add(oneTimePickUp);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        //Customer able to see how much is owed.
+        //GET: Customer/Details/5
+        public async Task<IActionResult> Details(int id)
+        {
+            Customer Balance = _context.Customer.Where(b => b.Balance == id).SingleOrDefault();
+            return View(Balance);
+        }
+        //Customer able to specify START and END date.
+        // GET: Customer
+        public async Task<IActionResult> Edit(int id)
+        {
+            Customer suspendStartStop = _context.Customer.Where(s => s.CustomerId == id).SingleOrDefault();
+            return View(await _context.Customer.ToListAsync());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Customer suspendStartStop)
+        {
+            _context.Customer.Update(suspendStartStop);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
 
     }
 }
