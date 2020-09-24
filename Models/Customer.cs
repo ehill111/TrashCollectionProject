@@ -24,7 +24,7 @@ namespace TrashCollectionRiches.Models
         [Display(Name = "PickUp Day", Order = -9)]
         public string PickUpDay { get; set; }
         [Display(Name = "Special PickUp Date", Order = -9)]
-        public DateTime SpecialPickUpDate { get; set; }
+        public string SpecialPickUpDate { get; set; }
         [Display(Name = "Suspend Start", Order = -9)]
         public DateTime SuspendStart { get; set; }
         [Display(Name = "Suspend Stop", Order = -9)]
