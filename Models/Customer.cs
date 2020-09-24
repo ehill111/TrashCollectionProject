@@ -29,6 +29,7 @@ namespace TrashCollectionRiches.Models
         public DateTime SuspendStart { get; set; }
         [Display(Name = "Suspend Stop", Order = -9)]
         public DateTime SuspendStop { get; set; }
-
+        [Display(Name = "PickUp Completed")]
+        public bool PickUpCompleted { get; set; }
     }
 }

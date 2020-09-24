@@ -58,7 +58,7 @@ namespace TrashCollectionRiches.Controllers
             return View(oneTimePickUp);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Customer oneTimePickUp)
+        public async Task<IActionResult> Create(Customer oneTimePickUp, int id)
         {
             _context.Customer.Add(oneTimePickUp);
             await _context.SaveChangesAsync();
@@ -73,13 +73,13 @@ namespace TrashCollectionRiches.Controllers
         }
         //Customer able to specify START and END date.
         // GET: Customer
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int id, DateTime suspend)
         {
             Customer suspendStartStop = _context.Customer.Where(s => s.CustomerId == id).SingleOrDefault();
             return View(await _context.Customer.ToListAsync());
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(Customer suspendStartStop)
+        public async Task<IActionResult> Edit(int id,Customer suspendStartStop)
         {
             _context.Customer.Update(suspendStartStop);
             await _context.SaveChangesAsync();

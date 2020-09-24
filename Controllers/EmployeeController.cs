@@ -43,148 +43,49 @@ namespace TrashCollectionRiches.Controllers
         //Employee is able to filter customers by a particular day.
         public async Task<IActionResult> Index()
         {
-            
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);//Find out about this???
             var employeeOnDuty = _context.Employee.Where(e => e.IdentityUserId == userId).Single();
-
             var customerInZipCode = _context.Customer.Where(c => c.ZipCode == employeeOnDuty.ZipCode).ToList();
-            var pickUpToday = _context.Customer.Where(c => c.PickUpDay != null).Where(c => c.PickUpDay == );
-            
-            if ( == 
-            return View("Monday");
-
-
-
-
+            var viewDay = _context.Customer.Where(c => c.PickUpDay != null).Where(c => c.PickUpDay == employeeOnDuty.EmployeeViewDay);
+             
+             return View();
         }
-
-
-
-
-
-        // GET: Employee/Details/5
-        public async Task<IActionResult> Details(int? id)
+        //Need to identify customers.
+        //Employee able to confirm pickup completed.
+        public async Task<IActionResult> Index()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.EmployeeId == id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
-
-            return View(employee);
-        }
-
-        // GET: Employee/Create
-        public IActionResult Create()
-        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);//Find out about this???
+            var employeeOnDuty = _context.Employee.Where(e => e.IdentityUserId == userId).Single();
+            var customerInZipCode = _context.Customer.Where(c => c.ZipCode == employeeOnDuty.ZipCode).ToList();
+            var completedPickup = _context.Customer.Where(c => c.PickUpCompleted == true);
             return View();
         }
-
-        // POST: Employee/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //Employee able to confirm charges to customer.
+        //GET
+        public async Task<IActionResult> Edit()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);//Find out about this???
+            var employeeOnDuty = _context.Employee.Where(e => e.IdentityUserId == userId).Single();
+            var customerInZipCode = _context.Customer.Where(c => c.ZipCode == employeeOnDuty.ZipCode).ToList();
+            return View();
+        }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeId,FirstName,LastName,StreetAddress,City,State,ZipCode,Email")] Employee employee)
+        public async Task<IActionResult> Edit()
         {
-            if (ModelState.IsValid)
+            _context.Customer.Where(c => c.PickUpCompleted == true);
+            
+            if (c == true)
             {
-                _context.Add(employee);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(employee);
-        }
 
-        // GET: Employee/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
             }
 
-            var employee = await _context.Employee.FindAsync(id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
-            return View(employee);
-        }
-
-        // POST: Employee/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,FirstName,LastName,StreetAddress,City,State,ZipCode,Email")] Employee employee)
-        {
-            if (id != employee.EmployeeId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(employee);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!EmployeeExists(employee.EmployeeId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(employee);
-        }
-
-        // GET: Employee/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.EmployeeId == id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
-
-            return View(employee);
-        }
-
-        // POST: Employee/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var employee = await _context.Employee.FindAsync(id);
-            _context.Employee.Remove(employee);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+      
 
-        private bool EmployeeExists(int id)
-        {
-            return _context.Employee.Any(e => e.EmployeeId == id);
-        }
+
+
+
     }
 }
