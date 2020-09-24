@@ -41,7 +41,7 @@ namespace TrashCollectionRiches.Controllers
         //Need customers in employee's zip code.
         //Need to exclude customers in suspended status.
         //Employee is able to filter customers by a particular day.
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);//Find out about this???
             var employeeOnDuty = _context.Employee.Where(e => e.IdentityUserId == userId).Single();
@@ -52,7 +52,7 @@ namespace TrashCollectionRiches.Controllers
         }
         //Need to identify customers.
         //Employee able to confirm pickup completed.
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Employee employee)
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);//Find out about this???
             var employeeOnDuty = _context.Employee.Where(e => e.IdentityUserId == userId).Single();
@@ -62,7 +62,7 @@ namespace TrashCollectionRiches.Controllers
         }
         //Employee able to confirm charges to customer.
         //GET
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> Edit(Employee employee)
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);//Find out about this???
             var employeeOnDuty = _context.Employee.Where(e => e.IdentityUserId == userId).Single();
@@ -73,11 +73,8 @@ namespace TrashCollectionRiches.Controllers
         public async Task<IActionResult> Edit()
         {
             _context.Customer.Where(c => c.PickUpCompleted == true);
-            
-            if (c == true)
-            {
 
-            }
+           
 
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
