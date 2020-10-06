@@ -22,7 +22,7 @@ namespace TrashCollectionRiches.Controllers
 
         //Customer able to enter information and sign up to start receiving regular trash pickups.
         // GET: Customer/Create
-        public IActionResult Create(string FirstName, string LastName, string StreetAddress, string City, string State, int ZipCode, string Email, string Password)
+        public IActionResult Create()
         {
             Customer customer = new Customer();
             return View();
@@ -46,7 +46,7 @@ namespace TrashCollectionRiches.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Customer customer)
         {
-             _context.Customer.Update(customer);
+            _context.Customer.Update(customer);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
@@ -79,13 +79,13 @@ namespace TrashCollectionRiches.Controllers
             return View(await _context.Customer.ToListAsync());
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int id,Customer suspendStartStop)
+        public async Task<IActionResult> Edit(int id, Customer suspendStartStop)
         {
             _context.Customer.Update(suspendStartStop);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-
-
     }
+
 }
+
